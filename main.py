@@ -20,6 +20,7 @@ def validate(text):
     assert "\n" not in text, "entry must be a single line"
     assert text.strip() == text, "entry must not have leading/trailing whitespace"
     assert "  " not in text, "entry must not contain double spaces"
+    assert all(ch.isprintable() for ch in text), "entry must not contain control characters"
     assert text.endswith("."), "entry must end with a full stop"
     return text
 
